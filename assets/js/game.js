@@ -16,4 +16,4 @@ var fight = function() {
     window.alert('Welcome to Robot Gladiators!!')
 }; 
 
-fight(); 
+fight();  
