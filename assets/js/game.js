@@ -10,7 +10,7 @@ var playerMoney = 10;
 // console.log("Name: " + playerName + ", Player attack pts: " + playerAttack + ", Health: " + playerHealth + " pts: " + playerMoney);
 
 var enemyNames = [" Roboto", " Amy Android", " Robo Trumble"];
-var enemyHealth = 50; 
+var enemyHealth = 20; 
 var enemyAttack = 12; 
 // console.log("Here are your enemys names:" + enemyNames); 
 
@@ -19,6 +19,9 @@ var enemyAttack = 12;
 //     console.log(i);
 //     console.log(enemyNames[i] + " is at " + i + " index");
 // }
+
+
+
 
 var fight = function(enemyName) {
 
@@ -33,7 +36,8 @@ var fight = function(enemyName) {
             // reward player for not skipping 
             playerMoney = playerMoney + 1;
             window.alert("You've been awarded +1 pts for not skipping, congrats!");
-            console.log(playerName + " Now has " + playerMoney + ".")
+            console.log("You've been awarded +1 pts for not skipping, congrats!");
+            console.log(playerName + " Now has " + playerMoney + "pts.")
             // remove enemy's health by subtracting the amount set in the playerAttack variable 
             enemyHealth = enemyHealth - playerAttack; 
             console.log(
@@ -75,7 +79,9 @@ var fight = function(enemyName) {
     
             // if no (false), ask question again by running fight() again
             else if (confirmSkip === "n" || confirmSkip === "N") {
-                    fight(enemyNames[i]);
+                var pickedEnemyName = enemyName[i];
+                enemyHealth = 20;
+                fight(enemyNames[i]);
             }
     
         } else {
@@ -88,7 +94,19 @@ var fight = function(enemyName) {
     
 }
 
-for (var i = 0; i < enemyNames.length; i++) {
-    fight(enemyNames[i]);
+// for (var i = 0; i < enemyNames.length; i++) {
+//     // debugger;
+//     // call fight functiom with enemy-robot
+//     fight(enemyNames[i]);
+// }
+
+for (var i = 0 ; i < enemyNames.length; i++) {
+    var pickedEnemyName = enemyNames[i]; 
+    enemyHealth = 20;
+    fight(pickedEnemyName);
+
+
 }
+
+// fight();
 console.timeEnd('abc');
