@@ -32,13 +32,17 @@ var fight = function(enemyName) {
             
             console.log("Welcome to Roboto Gladiators")
             // pick new names to fight based on the index of the enemyNames array
-            var pickedEnemyName = EnemyNames[i]; 
+            var pickedEnemyName = enemyNames[i]; 
             
             // reset the enemyHealth before starting a new fight/round
             enemyHealth = 50;
 
-            // pass the pickedEnemyName variable's value into the fight function (this will assume the valu of the enemyName parameter)
-            fight(pickedEnemyName);
+            // pass the pickedEnemyName variable's value into the fight function (this will assume the value of the enemyName parameter)
+            // fight(pickedEnemyName);
+            
+        } else {
+            window.alert("You robot has no more health! Game over!");
+            
         }
 
     // repeat and execute as long as the enemy-robot is alive
