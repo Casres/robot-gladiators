@@ -21,29 +21,53 @@ var enemyAttack = 12;
 // }
 
 
+ var startGame = function() {
+        for (var i = 0; i < enemyNames.length; i++)
 
+            if (playerHealth > 0) {
+                
+
+                // let the player know what round they are in (remember) that arrays start at zero so add 1
+                window.alert("welcome " + playerName + " to Robot Gladiators! Your oppontent is" + enemyNames +". Round" + (i + 1) );
+                
+                console.log("Welcome to Roboto Gladiators")
+                // pick new names to fight based on the index of the enemyNames array
+                var pickedEnemyName = enemyNames[i]; 
+                
+                // reset the enemyHealth before starting a new fight/round
+                enemyHealth = 50;
+
+                // pass the pickedEnemyName variable's value into the fight function (this will assume the value of the enemyName parameter)
+                fight(pickedEnemyName);
+                
+            } else {
+                window.alert("You robot has no more health! Game over!");
+                
+            }
+
+    }
 
 var fight = function(enemyName) {
 
-    if (playerHealth > 0) {
+    // if (playerHealth > 0) {
 
-            // let the player know what round they are in (remeber) that arrays start at zero so add 1
-            window.alert("welcome " + playerName + " to Robot Gladiators! Your oppontent is" + enemyName +". Round" + (i + 1) );
+    //         // let the player know what round they are in (remember) that arrays start at zero so add 1
+    //         window.alert("welcome " + playerName + " to Robot Gladiators! Your oppontent is" + enemyName +". Round" + (i + 1) );
             
-            console.log("Welcome to Roboto Gladiators")
-            // pick new names to fight based on the index of the enemyNames array
-            var pickedEnemyName = enemyNames[i]; 
+    //         console.log("Welcome to Roboto Gladiators")
+    //         // pick new names to fight based on the index of the enemyNames array
+    //         var pickedEnemyName = enemyNames[i]; 
             
-            // reset the enemyHealth before starting a new fight/round
-            enemyHealth = 50;
+    //         // reset the enemyHealth before starting a new fight/round
+    //         enemyHealth = 50;
 
-            // pass the pickedEnemyName variable's value into the fight function (this will assume the value of the enemyName parameter)
-            // fight(pickedEnemyName);
+    //         // pass the pickedEnemyName variable's value into the fight function (this will assume the value of the enemyName parameter)
+    //         // fight(pickedEnemyName);
             
-        } else {
-            window.alert("You robot has no more health! Game over!");
+    //     } else {
+    //         window.alert("You robot has no more health! Game over!");
             
-        }
+    //     }
 
     // repeat and execute as long as the enemy-robot is alive
     while(playerHealth >= 0 && enemyHealth >= 0) {
@@ -125,13 +149,15 @@ var fight = function(enemyName) {
 //     }
 // }
 
-for (var i = 0 ; i < enemyNames.length; i++) {
-    var pickedEnemyName = enemyNames[i]; 
-    enemyHealth = 40;
-    fight(pickedEnemyName);
-}
+// for (var i = 0 ; i < enemyNames.length; i++) {
+//     var pickedEnemyName = enemyNames[i]; 
+//     enemyHealth = 40;
+//     fight(pickedEnemyName);
+// }
 
+startGame();
 
+fight(pickedEnemyName);
 
 console.timeEnd('abc');
 
