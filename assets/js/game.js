@@ -13,13 +13,14 @@ var enemyNames = [" Roboto", " Amy Android", " Robo Trumble"];
 var enemyHealth = 40; 
 var enemyAttack = 12; 
 
+
+
 var startGame = function() {
 
     for (var i = 0; i < enemyNames.length; i++)
         
     if (playerHealth > 0) {
         
-
         // let the player know what round they are in (remember) that arrays start at zero so add 1
         window.alert("welcome " + playerName + " to Robot Gladiators! Your oppontent is" + enemyNames +". Round" + (i + 1) );
         
@@ -36,7 +37,18 @@ var startGame = function() {
         // pass the pickedEnemyName variable's value into the fight function (this will assume the value of the enemyName parameter)
         fight(pickedEnemyName);
 
-        
+        // this is basically saying when the last item in the array is done, no mo shop.
+        if (playerHealth > 0 && i < enemyNames.length - 1) {
+
+            // asking the player if they would like to go into the shop
+            var storeConfirm = window.confirm("The fight is over, would you like to visit the store before the next round?");
+
+            if (storeConfirm){
+                shop();
+            }
+            
+        }
+
     } else {
         window.alert("You robot has no more health! Game over!");
     }
@@ -46,11 +58,8 @@ var startGame = function() {
 }
 
 
-
-
 var endGame = function() {
 
-    
     window.alert("The game has now ended. Let's see how you did!!");
     if (playerHealth > 0) {
         window.alert("great job, you survived the game! You now have a score of " + playerMoney + ".");
@@ -66,14 +75,60 @@ var endGame = function() {
         window.alert("Thank you for playing Robot Gladiators! Come back soon!");
     }
 
-
-
-    
 }
 
 
+var shop = function() {
+    console.log("You have entered the shop.");
 
+    var shopOptionPrompt = window.prompt("Please enter one, would you like to REFILL ~ health, UPGRADE ~ attack or EXIT?");
 
+    switch (shopOptionPrompt) {
+        case "REFILL":
+        case "refill":
+            if(playerMoney >= 7) {
+
+            window.alert("Refill Health +20 = 7 pts.");
+
+            playerHealth = playerHealth + 8;
+            playerMoney = playerMoney - 7;
+
+            } else {
+                window.alert("Insufficient Funds");
+            }
+            
+            break;
+
+        case "UPGRADE":
+        case "upgrade":
+            if (playerMoney >= 7) {
+
+                window.alert("Upgrade Attack +3 = 7pts")
+
+                playerAttack = playerAttack + 3;
+                playerMoney = playerMoney - 7;
+
+            } else {
+                window.alert("Insufficient Funds");
+            }
+            
+            break;
+
+        case "EXIT": 
+        case "exit":
+            window.alert("Exit store."); 
+
+            break;
+
+        default:
+            window.alert("Not a valid option, please pick again.");
+
+            shop();
+
+            break;
+    }
+
+};
 
 var fight = function(enemyName) {
 
@@ -142,20 +197,12 @@ var fight = function(enemyName) {
             window.alert ("You need to choose a valid option, please try again");
         }
 
-
     }
 
 };
 
 
-
-
-
 startGame();
-
-// endGame();
 
 console.timeEnd('abc');
 
-
-// fight();
