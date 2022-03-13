@@ -41,12 +41,16 @@ var startGame = function() {
         window.alert("You robot has no more health! Game over!");
     }
 
+    endGame();
+
 }
 
 
-debugger
+
 
 var endGame = function() {
+
+    
     window.alert("The game has now ended. Let's see how you did!!");
     if (playerHealth > 0) {
         window.alert("great job, you survived the game! You now have a score of " + playerMoney + ".");
@@ -54,8 +58,9 @@ var endGame = function() {
         window.alert("You've lost your robot in battle.");
     }
 
+    // asking the player if they would like to play again
+    var playAgainConfirm = window.confirm("Would you like to play again?");
     if (playAgainConfirm) {
-        window.confirm("Would you like to play again?");
         startGame();
     } else {
         window.alert("Thank you for playing Robot Gladiators! Come back soon!");
@@ -148,7 +153,7 @@ var fight = function(enemyName) {
 
 startGame();
 
-endGame();
+// endGame();
 
 console.timeEnd('abc');
 
